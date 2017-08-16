@@ -8,8 +8,9 @@ from django.contrib.auth.hashers import make_password, check_password
 
 class User(models.Model):
     username = models.CharField(max_length=50, primary_key=True)
-    password = models.CharField(max_length=50, null=False)
-    email = models.EmailField()
+    email = models.EmailField(unique=True, db_index=True)
+    password = models.CharField(max_length=50)
     view_count = models.IntegerField(db_index=True, default=0)
-    signature = models.CharField(max_length=50, null=True)
+    signature = models.CharField(max_length=50, default="")
+    active = models.BooleanField(default=False)
 

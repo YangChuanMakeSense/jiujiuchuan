@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SERVER = "http://localhost:8000"
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'index',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +71,9 @@ TEMPLATES = [
     },
 ]
 TEMPLATE_DIR=(
-    os.path.join(BASE_DIR, "users", "templates")
+    os.path.join(BASE_DIR, "users", "templates"),
+    os.path.join(BASE_DIR, "index", "templates"),
+    os.path.join(BASE_DIR, "blog", "templates")
 )
 
 WSGI_APPLICATION = 'jiujiuchuan.wsgi.application'
@@ -78,18 +83,18 @@ WSGI_APPLICATION = 'jiujiuchuan.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-   'sqlite3': {
+   'default': {
        'ENGINE': 'django.db.backends.sqlite3',
        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
    },
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jiujiuchuan',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
-    },
+    # 'mysql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'jiujiuchuan',
+    #     'USER': 'root',
+    #     'PASSWORD': 'root',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    # },
 }
 
 
@@ -113,8 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 PASSWORD_HASHERS = (
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    #'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    #'django.contrib.auth.hashers.BCryptPasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.SHA1PasswordHasher',
@@ -141,3 +146,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.126.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'jiujiuchuan@126.com'
+EMAIL_HOST_PASSWORD = 'jiujiuchuan2017'
+DEFAULT_FROM_EMAIL = 'jiujiuchuan@126.com'
+
+
+# active
+ACTIVE_SALT = "active"
+ACTIVE_MAX_AGE = "600"

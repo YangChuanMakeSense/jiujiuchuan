@@ -13,14 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
-from django.contrib import admin
-from users.views import signin, signup
-
+from django.conf.urls import url
+from blog.views import blog_edit
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^users', include('users.urls')),
-    url(r'^index', include('index.urls')),
-    url(r'^blog', include('blog.urls')),
+    url(r'(?P<username>\w+)/edit$', blog_edit, name="blog_edit"),
 ]

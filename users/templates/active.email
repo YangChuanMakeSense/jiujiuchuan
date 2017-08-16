@@ -1,0 +1,13 @@
+{{username}} 您好！
+    首先，非常感谢您对 啾啾川 的支持。
+    这是来自 www.jiujiuchuan.com 的用户注册激活邮件，点击下方的链接进行激活。
+    如果不是您在注册账户，请忽略这封邮件。
+
+    激活链接: {{link}}
+
+{{username}} Hi!
+    At first, we very appreciate your support to jiujiuchuan.
+    This is an email for user active when sign up from www.jiujiuchuan.com, please click below link to active your account.
+    If that is your business, PLEASE DO NOT CLICK THE LINK
+
+    active link: {{link}}

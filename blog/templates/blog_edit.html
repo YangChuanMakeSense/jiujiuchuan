@@ -3,17 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>注册</title>
+    <title>编辑博客</title>
 </head>
 
 <body>
-<h1>注册页面：</h1>
+<h1>博客编辑页面：</h1>
 <form action = '/users/signup' method = 'post' enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value = "注册" />
+    <input type="submit" value = "提交博客" />
 </form>
 <br>
-<a href="/users/signin">前往登录</a>
+<a href="/users/signin">前往主页</a>
 </body>
 </html>
