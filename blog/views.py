@@ -8,7 +8,6 @@ from django import forms
 
 class BlogEditForm(forms.Form):
     title = forms.CharField(label='username:', max_length=100)
-    tag = forms.
 
 
 def blog_edit(request, username="No One"):
